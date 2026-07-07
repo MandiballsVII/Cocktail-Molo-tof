@@ -5,7 +5,13 @@ public abstract class DraggableObject : InteractableObject
     private Vector3 startPosition;
     private Camera mainCamera;
     private bool dragging;
+    [SerializeField] private bool canDrag;
 
+    public bool CanDrag
+    {
+        get => canDrag;
+        set => canDrag = value;
+    }
     protected virtual void Awake()
     {
         startPosition = transform.position;
@@ -14,6 +20,8 @@ public abstract class DraggableObject : InteractableObject
 
     private void OnMouseDown()
     {
+        if (!canDrag)
+            return;
         dragging = true;
         OnDragStarted();
     }

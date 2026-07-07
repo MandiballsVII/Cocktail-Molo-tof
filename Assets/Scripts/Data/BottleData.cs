@@ -7,5 +7,6 @@ public class BottleData : ScriptableObject
 
     public Color liquidColor;
 
-    public float amount = 1f;
+    [Min(1)]
+    public int units = 1;
 }

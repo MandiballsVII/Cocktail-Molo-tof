@@ -5,5 +5,5 @@ public class GlassData : ScriptableObject
 {
     public string glassName;
     public Sprite sprite;
-    public int capacity;
+    public GlassType type;
 }
