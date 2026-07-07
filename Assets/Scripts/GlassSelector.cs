@@ -1,9 +1,11 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GlassSelector : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer glassRenderer;
     [SerializeField] private GlassData[] glasses;
+    [SerializeField] private Button[] selectionButtons; 
 
     private int currentIndex;
 
@@ -31,6 +33,14 @@ public class GlassSelector : MonoBehaviour
     private void UpdateGlass()
     {
         glassRenderer.sprite = glasses[currentIndex].sprite;
+    }
+
+    public void ConfirmSelection()
+    {
+        foreach (var button in selectionButtons)
+        {
+            button.interactable = false;
+        }
     }
 
     public GlassData CurrentGlass => glasses[currentIndex];
