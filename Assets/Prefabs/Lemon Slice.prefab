@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7959052723702685058}
   - component: {fileID: 2200502842093517441}
   - component: {fileID: 6440519593505591185}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Lemon Slice
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -77,10 +77,10 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 25d0d4a177d8eb34aa76e2074c31f51a, type: 3}
+  m_SortingLayerID: -1296369215
+  m_SortingLayer: 1
+  m_SortingOrder: 1
+  m_Sprite: {fileID: 21300000, guid: dcc80a2c6e067c24e990dbe4f3cf53d6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -106,9 +106,9 @@ MonoBehaviour:
   canDrag: 0
   glassLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   data: {fileID: 11400000, guid: e54253396bbb18f49bdcfcfd50eb06ef, type: 2}
-  interactionPoint: {fileID: 0}
+  interactionPoint: {fileID: 4256564698744192894}
 --- !u!61 &6440519593505591185
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -141,18 +141,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.5204456, y: 0.18704188}
+  m_Offset: {x: -0.024791598, y: -0.004597664}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 12.8, y: 7.2}
+    oldSize: {x: 0.38, y: 1}
     newSize: {x: 0.16, y: 0.16}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.2264037, y: 1.2070763}
+  m_Size: {x: 0.36239123, y: 0.8237972}
   m_EdgeRadius: 0
 --- !u!1 &4254828451102684860
 GameObject:
@@ -163,7 +163,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4256564698744192894}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: DropPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
