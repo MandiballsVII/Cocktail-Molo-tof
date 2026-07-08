@@ -4,20 +4,15 @@ public class Bottle : DraggableObject
 {
     [SerializeField] private BottleData data;
 
-    [SerializeField] private Transform pourPoint;
+    [SerializeField] private Transform interactionPoint;
 
     protected override void OnDropped()
     {
-        Collider2D hit = Physics2D.OverlapPoint(pourPoint.position);
+        Glass glass = GetTargetGlass(interactionPoint.position);
 
-        if (hit == null)
+        if (glass == null)
             return;
 
-        Glass glass = hit.GetComponent<Glass>();
-
-        if (glass != null)
-        {
-            glass.Pour(data);
-        }
+        glass.Pour(data);
     }
 }

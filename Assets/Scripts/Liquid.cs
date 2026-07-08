@@ -7,6 +7,19 @@ public class Liquid : MonoBehaviour
 
     private Dictionary<BottleData, int> ingredients = new();
 
+    private void Awake()
+    {
+        liquidRenderer.enabled = false;
+    }
+    public void Show()
+    {
+        liquidRenderer.enabled = true;
+    }
+
+    public void Hide()
+    {
+        liquidRenderer.enabled = false;
+    }
     public void Pour(BottleData bottle)
     {
         if (ingredients.ContainsKey(bottle))

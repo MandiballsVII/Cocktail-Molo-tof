@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3338d3c17e6aaa49b62f15a804cd31d, type: 3}
   m_Name: SmallGlass
   m_EditorClassIdentifier: 
-  glassName: 
-  sprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
-  capacity: 0
+  glassName: Small glass
+  front: {fileID: 21300000, guid: f47bbefde0f7f8f43942a1650fcd1927, type: 3}
+  back: {fileID: 21300000, guid: ee93bb8da68f26249b531ca6c5c11758, type: 3}
+  drink: {fileID: 21300000, guid: 6171ad39876d3744a832ee9091ffdaf4, type: 3}
+  type: 0

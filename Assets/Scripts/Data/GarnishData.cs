@@ -6,4 +6,6 @@ public class GarnishData : ScriptableObject
     public string garnishName;
 
     public Sprite sprite;
+
+    public GameObject prefab;
 }

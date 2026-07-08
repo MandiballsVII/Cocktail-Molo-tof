@@ -6,6 +6,8 @@ public abstract class DraggableObject : InteractableObject
     private Camera mainCamera;
     private bool dragging;
     [SerializeField] private bool canDrag;
+    private float objectZ;
+    [SerializeField] private LayerMask glassLayer;
 
     public bool CanDrag
     {
@@ -16,6 +18,7 @@ public abstract class DraggableObject : InteractableObject
     {
         startPosition = transform.position;
         mainCamera = Camera.main;
+        objectZ = transform.position.z;
     }
 
     private void OnMouseDown()
@@ -32,9 +35,13 @@ public abstract class DraggableObject : InteractableObject
             return;
 
         Vector3 mouse = Input.mousePosition;
-        mouse.z = Mathf.Abs(mainCamera.transform.position.z);
+        mouse.z = Mathf.Abs(mainCamera.transform.position.z - objectZ);
 
-        transform.position = mainCamera.ScreenToWorldPoint(mouse);
+        Vector3 world = mainCamera.ScreenToWorldPoint(mouse);
+
+        world.z = objectZ;
+
+        transform.position = world;
     }
 
     private void OnMouseUp()
@@ -44,6 +51,7 @@ public abstract class DraggableObject : InteractableObject
         OnDropped();
 
         ReturnHome();
+
     }
 
     protected virtual void ReturnHome()
@@ -59,5 +67,15 @@ public abstract class DraggableObject : InteractableObject
     protected virtual void OnDropped()
     {
 
+    }
+
+    protected Glass GetTargetGlass(Vector3 point)
+    {
+        Collider2D hit = Physics2D.OverlapPoint(point, glassLayer);
+
+        if (hit == null)
+            return null;
+
+        return hit.GetComponent<Glass>();
     }
 }

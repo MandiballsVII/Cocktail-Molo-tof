@@ -4,6 +4,8 @@ using UnityEngine.UI;
 public class GlassSelector : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer glassRenderer;
+    [SerializeField] private SpriteRenderer backRenderer;
+    [SerializeField] private SpriteRenderer liquidRenderer;
     [SerializeField] private GlassData[] glasses;
 
     private int currentIndex;
@@ -31,7 +33,9 @@ public class GlassSelector : MonoBehaviour
 
     private void UpdateGlass()
     {
-        glassRenderer.sprite = glasses[currentIndex].sprite;
+        glassRenderer.sprite = glasses[currentIndex].front;
+        backRenderer.sprite = glasses[currentIndex].back;       
+        liquidRenderer.sprite = glasses[currentIndex].drink;
     }
 
     public GlassData CurrentGlass => glasses[currentIndex];

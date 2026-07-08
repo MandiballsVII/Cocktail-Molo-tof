@@ -4,6 +4,8 @@ using UnityEngine;
 public class GlassData : ScriptableObject
 {
     public string glassName;
-    public Sprite sprite;
+    public Sprite front;
+    public Sprite back;
+    public Sprite drink;
     public GlassType type;
 }
