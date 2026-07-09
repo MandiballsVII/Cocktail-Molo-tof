@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SmallGlass
   m_EditorClassIdentifier: 
   glassName: Small glass
-  front: {fileID: 21300000, guid: f47bbefde0f7f8f43942a1650fcd1927, type: 3}
+  front: {fileID: 21300000, guid: e37484a66f499bf40a6f73533f29705b, type: 3}
   back: {fileID: 21300000, guid: ee93bb8da68f26249b531ca6c5c11758, type: 3}
   drink: {fileID: 21300000, guid: 6171ad39876d3744a832ee9091ffdaf4, type: 3}
   type: 0
