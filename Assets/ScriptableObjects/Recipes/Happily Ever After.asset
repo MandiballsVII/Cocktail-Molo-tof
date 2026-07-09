@@ -10,15 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0934c9d4bf1375f4785d8a38925a3f0f, type: 3}
-  m_Name: Bloody Mary
+  m_Name: Happily Ever After
   m_EditorClassIdentifier: 
-  recipeName: Bloody Mary
+  recipeName: Happily Ever After
   previewImage: {fileID: 0}
-  price: 10
+  price: 18
   requiredGlass: {fileID: 11400000, guid: 74f32cc9ce43d7946a91ab11ba5d3862, type: 2}
   ingredients:
-  - ingredient: {fileID: 11400000, guid: c9a13c40f52971f428ecf0a6a08e1e4d, type: 2}
+  - ingredient: {fileID: 11400000, guid: 686b75219c60ccf4f919ef2ad042bce2, type: 2}
     units: 3
+  - ingredient: {fileID: 11400000, guid: dc361ed1d04dd414aa5e122c8563c5aa, type: 2}
+    units: 1
   preparationMethod: 0
   garnishes:
   - garnish: {fileID: 11400000, guid: a519693262cb7f145a8a6827ae627db2, type: 2}
