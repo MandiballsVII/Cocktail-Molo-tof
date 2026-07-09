@@ -10,13 +10,24 @@ public class CocktailShaker : MonoBehaviour
     private Vector3 previousPosition;
 
     private float currentSpeed;
-    public float CurrentSpeed => currentSpeed;
+
+    [SerializeField]
+    private float speedSmooth = 8f;
+
+    private float filteredSpeed;
+
+    public float CurrentSpeed => filteredSpeed;
 
     private void Awake()
     {
         mainCamera = Camera.main;
         objectZ = transform.position.z;
         previousPosition = transform.position;
+    }
+
+    private void Update()
+    {
+        filteredSpeed = Mathf.Lerp(filteredSpeed, currentSpeed, Time.deltaTime * speedSmooth);
     }
 
     private void OnMouseDown()
@@ -55,6 +66,7 @@ public class CocktailShaker : MonoBehaviour
         previousPosition = transform.position;
 
         print($"Current Speed: {currentSpeed}");
+        print($"Filtered Speed: {filteredSpeed}");
     }
 
     private void OnMouseUp()

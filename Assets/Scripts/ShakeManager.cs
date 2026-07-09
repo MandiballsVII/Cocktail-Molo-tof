@@ -21,6 +21,15 @@ public class ShakeManager : MonoBehaviour
 
     private Glass currentGlass;
 
+    [SerializeField] private ShakeMeter shakeMeter;
+    [SerializeField] private ShakeProgress progress;
+
+    [Header("Progress Settings")]
+    [SerializeField] private float greenProgressPerSecond = 0.35f;
+    [SerializeField] private float yellowProgressPerSecond = 0.08f;
+    [SerializeField] private float redPenaltyPerSecond = 0.25f;
+
+
     private void Update()
     {
         if (!timerRunning)
@@ -29,12 +38,29 @@ public class ShakeManager : MonoBehaviour
         remainingTime -= Time.deltaTime;
         UpdateTimerUI();
 
+        if (currentShaker != null)
+        {
+            Debug.Log("Shaker speed: " + currentShaker.CurrentSpeed);
+            shakeMeter.SetSpeed(currentShaker.CurrentSpeed);
+        }
+        if (shakeMeter.IsInGreenZone)
+        {
+            progress.AddProgress(
+                greenProgressPerSecond * Time.deltaTime);
+        }
+        else if (shakeMeter.IsInYellowZone)
+        {
+            progress.AddProgress(
+                yellowProgressPerSecond * Time.deltaTime);
+        }
+        else
+        {
+            progress.AddProgress(
+                -redPenaltyPerSecond * Time.deltaTime);
+        }
         if (remainingTime <= 0f)
         {
             remainingTime = 0f;
-            timerRunning = false;
-
-            remainingTime = 0;
 
             UpdateTimerUI();
 
@@ -44,7 +70,8 @@ public class ShakeManager : MonoBehaviour
     public void StartShake(Glass glass)
     {
         currentGlass = glass;
-
+        shakeMeter.ResetMeter();
+        shakeMeter.gameObject.SetActive(true);
         timerText.gameObject.SetActive(true);
         currentGlass.Liquid.Hide();
         currentShaker = Instantiate(
@@ -62,17 +89,13 @@ public class ShakeManager : MonoBehaviour
         {
             currentGlass.Liquid.Show();
         }
-
         if (currentShaker != null)
-        {
             Destroy(currentShaker.gameObject);
-        }
 
         currentGlass = null;
         currentShaker = null;
+        shakeMeter.gameObject.SetActive(false);
         timerText.gameObject.SetActive(false);
-        if (currentShaker != null)
-            Destroy(currentShaker.gameObject);
     }
     private void FinishShake()
     {
