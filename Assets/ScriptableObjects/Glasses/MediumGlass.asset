@@ -13,7 +13,4 @@ MonoBehaviour:
   m_Name: MediumGlass
   m_EditorClassIdentifier: 
   glassName: Medium glass
-  front: {fileID: 21300000, guid: c68b5c2362510a24a86087d52303f7d7, type: 3}
-  back: {fileID: 21300000, guid: 013d2a9774008064e992d2a900e09905, type: 3}
-  drink: {fileID: 21300000, guid: c6a1293877503ca40881a36ddf8a9a76, type: 3}
-  type: 1
+  prefab: {fileID: 5308272922815924978, guid: 2e7609319baad65488c6af0f2714ff89, type: 3}

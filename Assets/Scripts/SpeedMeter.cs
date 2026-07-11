@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ShakeMeter : MonoBehaviour
+public class SpeedMeter : MonoBehaviour
 {
     [Header("UI")]
     [SerializeField] private RectTransform arrow;

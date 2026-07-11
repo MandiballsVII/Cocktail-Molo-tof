@@ -17,12 +17,14 @@ public class ShakeManager : MonoBehaviour
     public float RemainingTimeNormalized =>
     remainingTime / shakeDuration;
 
+    [SerializeField] private GlassSelector glassSelector;
+
     [SerializeField] private TMP_Text timerText;
 
     private Glass currentGlass;
 
-    [SerializeField] private ShakeMeter shakeMeter;
-    [SerializeField] private ShakeProgress progress;
+    [SerializeField] private SpeedMeter shakeMeter;
+    [SerializeField] private ProgressMeter progress;
 
     [Header("Progress Settings")]
     [SerializeField] private float greenProgressPerSecond = 0.35f;
@@ -73,19 +75,29 @@ public class ShakeManager : MonoBehaviour
             return;
         }
     }
-    public void StartShake(Glass glass)
+    public void StartShake()
     {
+        Glass glass = glassSelector.CurrentGlass;
+
+        if (glass == null)
+            return;
+
         currentGlass = glass;
+
         shakeMeter.ResetMeter();
         shakeMeter.gameObject.SetActive(true);
         timerText.gameObject.SetActive(true);
+
         currentGlass.Liquid.Hide();
+
         currentShaker = Instantiate(
             shakerPrefab,
             glass.transform.position,
             Quaternion.identity);
+
         remainingTime = shakeDuration;
         timerRunning = true;
+
         UpdateTimerUI();
     }
 

@@ -8,6 +8,7 @@ public class PreparationManager : MonoBehaviour
 
     [Header("Glass Selection")]
     [SerializeField] private Button[] glassButtons;
+    [SerializeField] private GlassSelector glassSelector;
 
     [Header("Bottles")]
     [SerializeField] private DraggableObject[] bottles;

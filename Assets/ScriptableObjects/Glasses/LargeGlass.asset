@@ -13,7 +13,4 @@ MonoBehaviour:
   m_Name: LargeGlass
   m_EditorClassIdentifier: 
   glassName: Large glass
-  front: {fileID: 21300000, guid: d76d91eebd4ac7c40aab8aa57dea32a2, type: 3}
-  back: {fileID: 21300000, guid: a59a1d335b93e82429cd0859c595e607, type: 3}
-  drink: {fileID: 21300000, guid: 800197e15728a1a4aa23cc445529f5b2, type: 3}
-  type: 2
+  prefab: {fileID: 1013967213123920369, guid: fa0090be94645d441bf85a71cc324e40, type: 3}

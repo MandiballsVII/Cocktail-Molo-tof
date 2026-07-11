@@ -1,24 +1,30 @@
 using UnityEngine;
-using UnityEngine.UI;
 
 public class GlassSelector : MonoBehaviour
 {
-    [SerializeField] private SpriteRenderer glassRenderer;
-    [SerializeField] private SpriteRenderer backRenderer;
-    [SerializeField] private SpriteRenderer liquidRenderer;
     [SerializeField] private GlassData[] glasses;
+
+    [SerializeField] private Transform spawnPoint;
 
     private int currentIndex;
 
+    private Glass currentGlass;
+
+    public Glass CurrentGlass => currentGlass;
+
     private void Start()
     {
-        UpdateGlass();
+        SpawnGlass();
     }
 
     public void NextGlass()
     {
-        currentIndex = (currentIndex + 1) % glasses.Length;
-        UpdateGlass();
+        currentIndex++;
+
+        if (currentIndex >= glasses.Length)
+            currentIndex = 0;
+
+        SpawnGlass();
     }
 
     public void PreviousGlass()
@@ -28,15 +34,18 @@ public class GlassSelector : MonoBehaviour
         if (currentIndex < 0)
             currentIndex = glasses.Length - 1;
 
-        UpdateGlass();
+        SpawnGlass();
     }
 
-    private void UpdateGlass()
+    private void SpawnGlass()
     {
-        glassRenderer.sprite = glasses[currentIndex].front;
-        backRenderer.sprite = glasses[currentIndex].back;       
-        liquidRenderer.sprite = glasses[currentIndex].drink;
-    }
+        if (currentGlass != null)
+            Destroy(currentGlass.gameObject);
 
-    public GlassData CurrentGlass => glasses[currentIndex];
+        currentGlass = Instantiate(
+            glasses[currentIndex].prefab,
+            spawnPoint.position,
+            spawnPoint.rotation,
+            spawnPoint);
+    }
 }

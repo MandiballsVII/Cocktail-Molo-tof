@@ -7,6 +7,22 @@ public class Glass : MonoBehaviour
     private List<GarnishData> garnishes = new();
     [SerializeField] private Transform garnishContainer;
 
+    [SerializeField] private Transform leftLimit;
+    [SerializeField] private Transform rightLimit;
+    [SerializeField] private Collider2D stirZone;
+
+    public Transform LeftLimit => leftLimit;
+    public Transform RightLimit => rightLimit;
+    public Collider2D StirZone => stirZone;
+
+    [SerializeField] private StirSpoon spoonPrefab;
+
+    public StirSpoon SpoonPrefab => spoonPrefab;
+
+    [SerializeField] private Transform spoonSpawnPoint;
+
+    public Transform SpoonSpawnPoint => spoonSpawnPoint;
+
     public void Pour(BottleData bottle)
     {
         liquid.Show();

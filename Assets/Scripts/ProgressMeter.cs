@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ShakeProgress : MonoBehaviour
+public class ProgressMeter : MonoBehaviour
 {
     [SerializeField] private Image progressImage;
 
