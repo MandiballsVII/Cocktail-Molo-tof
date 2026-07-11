@@ -58,13 +58,19 @@ public class ShakeManager : MonoBehaviour
             progress.AddProgress(
                 -redPenaltyPerSecond * Time.deltaTime);
         }
+        if (progress.IsCompleted)
+        {
+            FinishShake(true);
+            return;
+        }
         if (remainingTime <= 0f)
         {
             remainingTime = 0f;
 
             UpdateTimerUI();
 
-            FinishShake();
+            FinishShake(false);
+            return;
         }
     }
     public void StartShake(Glass glass)
@@ -97,11 +103,12 @@ public class ShakeManager : MonoBehaviour
         shakeMeter.gameObject.SetActive(false);
         timerText.gameObject.SetActive(false);
     }
-    private void FinishShake()
+    private void FinishShake(bool success)
     {
         timerRunning = false;
 
         EndShake();
+        Debug.Log(success ? "Shake completado" : "Shake fallido");
 
         // Más adelante:
         // PreparationManager.OnShakeFinished(success);
