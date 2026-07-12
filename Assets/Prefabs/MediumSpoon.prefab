@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5921706921521594693}
   - component: {fileID: 2324464930951382329}
   - component: {fileID: 5922408905038938658}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: MediumSpoon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -103,7 +103,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -184,7 +184,7 @@ GameObject:
   - component: {fileID: 7001926015348004832}
   - component: {fileID: 727951613912472333}
   - component: {fileID: 8019900184605229028}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TipTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}

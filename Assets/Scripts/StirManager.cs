@@ -1,78 +1,48 @@
 using UnityEngine;
-using TMPro;
 
-public class StirManager : MonoBehaviour
+public class StirManager : MiniGameManager
 {
-    [SerializeField] private GlassSelector glassSelector;
-
-    [SerializeField] private SpeedMeter speedMeter;
-    [SerializeField] private ProgressMeter progress;
-
-    [SerializeField] private TMP_Text timerText;
-
-    [SerializeField]
-    private float stirDuration = 10f;
-
-    private float remainingTime;
-    private bool timerRunning;
-
-    private Glass currentGlass;
     private StirSpoon currentSpoon;
-
-    private void Update()
-    {
-        if (!timerRunning)
-            return;
-
-        remainingTime -= Time.deltaTime;
-
-        timerText.text = remainingTime.ToString("F2");
-
-        if (remainingTime <= 0f)
-        {
-            FinishStir(false);
-        }
-    }
 
     public void StartStir()
     {
-        currentGlass = glassSelector.CurrentGlass;
+        speedMeter.ConfigureSpeedRange(0f, 10f);
+        speedMeter.SetSmoothTime(0.35f);
+        StartMiniGame();
+    }
 
-        if (currentGlass == null)
-            return;
-
-        speedMeter.ResetMeter();
-        progress.ResetProgress();
-
-        speedMeter.gameObject.SetActive(true);
-        timerText.gameObject.SetActive(true);
-
-        currentGlass.Liquid.Hide();
-
+    protected override void SpawnMiniGameObject()
+    {
         currentSpoon = Instantiate(
             currentGlass.SpoonPrefab,
             currentGlass.SpoonSpawnPoint.position,
             Quaternion.identity);
-
-        remainingTime = stirDuration;
-        timerRunning = true;
-
-        timerText.text = remainingTime.ToString("F2");
     }
 
-    private void FinishStir(bool success)
+    protected override float GetCurrentSpeed()
     {
-        timerRunning = false;
+        if (currentSpoon == null)
+            return 0f;
 
-        if (currentGlass != null)
-            currentGlass.Liquid.Show();
+        return currentSpoon.CurrentSpeed;
+    }
 
+    protected override void DestroyMiniGameObject()
+    {
         if (currentSpoon != null)
+        {
             Destroy(currentSpoon.gameObject);
+            currentSpoon = null;
+        }
+    }
 
-        speedMeter.gameObject.SetActive(false);
-        timerText.gameObject.SetActive(false);
+    protected override string GetMiniGameName()
+    {
+        return "Stir";
+    }
 
-        Debug.Log(success ? "Stir completado" : "Stir fallido");
+    protected override void OnMiniGameFinished(bool success)
+    {
+        // Más adelante avisaremos al PreparationManager.
     }
 }

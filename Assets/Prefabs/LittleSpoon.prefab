@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7439423292713324159}
   - component: {fileID: 7522397138856779399}
   - component: {fileID: 4499581071684930210}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TipTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -104,7 +104,7 @@ GameObject:
   - component: {fileID: 7514601831976771707}
   - component: {fileID: 5603823266983104455}
   - component: {fileID: -6911181232017012166}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LittleSpoon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -194,7 +194,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2

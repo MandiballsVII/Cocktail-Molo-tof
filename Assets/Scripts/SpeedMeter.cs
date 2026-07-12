@@ -90,4 +90,13 @@ public class SpeedMeter : MonoBehaviour
         pos.y = minY;
         arrow.anchoredPosition = pos;
     }
+    public void ConfigureSpeedRange(float minSpeed, float maxSpeed)
+    {
+        this.minSpeed = minSpeed;
+        this.maxSpeed = maxSpeed;
+    }
+    public void SetSmoothTime(float value)
+    {
+        smoothTime = value;
+    }
 }

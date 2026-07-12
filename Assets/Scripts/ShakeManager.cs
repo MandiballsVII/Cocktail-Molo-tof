@@ -1,132 +1,50 @@
 using UnityEngine;
-using TMPro;
 
-public class ShakeManager : MonoBehaviour
+public class ShakeManager : MiniGameManager
 {
+    [Header("Shake")]
     [SerializeField] private CocktailShaker shakerPrefab;
 
     private CocktailShaker currentShaker;
-
-    [SerializeField]
-    private float shakeDuration = 10f;
-
-    private float remainingTime;
-    private bool timerRunning;
-
-    public float RemainingTime => remainingTime;
-    public float RemainingTimeNormalized =>
-    remainingTime / shakeDuration;
-
-    [SerializeField] private GlassSelector glassSelector;
-
-    [SerializeField] private TMP_Text timerText;
-
-    private Glass currentGlass;
-
-    [SerializeField] private SpeedMeter shakeMeter;
-    [SerializeField] private ProgressMeter progress;
-
-    [Header("Progress Settings")]
-    [SerializeField] private float greenProgressPerSecond = 0.35f;
-    [SerializeField] private float yellowProgressPerSecond = 0.08f;
-    [SerializeField] private float redPenaltyPerSecond = 0.25f;
-
-
-    private void Update()
-    {
-        if (!timerRunning)
-            return;
-
-        remainingTime -= Time.deltaTime;
-        UpdateTimerUI();
-
-        if (currentShaker != null)
-        {
-            Debug.Log("Shaker speed: " + currentShaker.CurrentSpeed);
-            shakeMeter.SetSpeed(currentShaker.CurrentSpeed);
-        }
-        if (shakeMeter.IsInGreenZone)
-        {
-            progress.AddProgress(
-                greenProgressPerSecond * Time.deltaTime);
-        }
-        else if (shakeMeter.IsInYellowZone)
-        {
-            progress.AddProgress(
-                yellowProgressPerSecond * Time.deltaTime);
-        }
-        else
-        {
-            progress.AddProgress(
-                -redPenaltyPerSecond * Time.deltaTime);
-        }
-        if (progress.IsCompleted)
-        {
-            FinishShake(true);
-            return;
-        }
-        if (remainingTime <= 0f)
-        {
-            remainingTime = 0f;
-
-            UpdateTimerUI();
-
-            FinishShake(false);
-            return;
-        }
-    }
     public void StartShake()
     {
-        Glass glass = glassSelector.CurrentGlass;
-
-        if (glass == null)
-            return;
-
-        currentGlass = glass;
-
-        shakeMeter.ResetMeter();
-        shakeMeter.gameObject.SetActive(true);
-        timerText.gameObject.SetActive(true);
-
-        currentGlass.Liquid.Hide();
-
+        speedMeter.ConfigureSpeedRange(0f, 100f);
+        speedMeter.SetSmoothTime(0.15f);
+        StartMiniGame();
+    }
+    protected override void SpawnMiniGameObject()
+    {
         currentShaker = Instantiate(
             shakerPrefab,
-            glass.transform.position,
+            currentGlass.transform.position,
             Quaternion.identity);
-
-        remainingTime = shakeDuration;
-        timerRunning = true;
-
-        UpdateTimerUI();
     }
 
-    public void EndShake()
+    protected override float GetCurrentSpeed()
     {
-        if (currentGlass != null)
-        {
-            currentGlass.Liquid.Show();
-        }
+        if (currentShaker == null)
+            return 0f;
+
+        return currentShaker.CurrentSpeed;
+    }
+
+    protected override void DestroyMiniGameObject()
+    {
         if (currentShaker != null)
+        {
             Destroy(currentShaker.gameObject);
-
-        currentGlass = null;
-        currentShaker = null;
-        shakeMeter.gameObject.SetActive(false);
-        timerText.gameObject.SetActive(false);
+            currentShaker = null;
+        }
     }
-    private void FinishShake(bool success)
+
+    protected override string GetMiniGameName()
     {
-        timerRunning = false;
-
-        EndShake();
-        Debug.Log(success ? "Shake completado" : "Shake fallido");
-
-        // Más adelante:
-        // PreparationManager.OnShakeFinished(success);
+        return "Shake";
     }
-    private void UpdateTimerUI()
+
+    protected override void OnMiniGameFinished(bool success)
     {
-        timerText.text = remainingTime.ToString("F2");
+        // Aquí podremos avisar al PreparationManager
+        // cuando implementemos el flujo completo.
     }
 }

@@ -38,9 +38,11 @@ public class StirSpoon : MonoBehaviour
 
     private void Update()
     {
+        float targetSpeed = insideGlass ? currentSpeed : 0f;
+
         filteredSpeed = Mathf.Lerp(
             filteredSpeed,
-            currentSpeed,
+            targetSpeed,
             Time.deltaTime * speedSmooth);
     }
 
@@ -87,9 +89,15 @@ public class StirSpoon : MonoBehaviour
             transform.position = world;
         }
 
-        float deltaX = transform.position.x - previousPosition.x;
-
-        currentSpeed = Mathf.Abs(deltaX) / Time.deltaTime;
+        if (insideGlass)
+        {
+            float deltaX = transform.position.x - previousPosition.x;
+            currentSpeed = Mathf.Abs(deltaX) / Time.deltaTime;
+        }
+        else
+        {
+            currentSpeed = 0f;
+        }
 
         previousPosition = transform.position;
     }
@@ -115,21 +123,5 @@ public class StirSpoon : MonoBehaviour
         currentGlass = glass;
         fixedY = transform.position.y;
     }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (insideGlass)
-            return;
-
-        Glass glass = other.GetComponentInParent<Glass>();
-
-        if (glass == null)
-            return;
-
-        insideGlass = true;
-
-        currentGlass = glass;
-
-        fixedY = transform.position.y;
-    }
+    
 }

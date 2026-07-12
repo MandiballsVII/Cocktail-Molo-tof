@@ -771,15 +771,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0560925bd15c46b4ab9baa0bef49e613, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shakerPrefab: {fileID: 6369872326363275812, guid: 39001e41a2f622049a5b696e5cadac4e, type: 3}
-  shakeDuration: 10
   glassSelector: {fileID: 762347988}
-  timerText: {fileID: 1173151042}
-  shakeMeter: {fileID: 1786291764}
+  speedMeter: {fileID: 1786291764}
   progress: {fileID: 683945182}
+  timerText: {fileID: 1173151042}
+  miniGameDuration: 10
   greenProgressPerSecond: 0.35
   yellowProgressPerSecond: 0.08
   redPenaltyPerSecond: 0.25
+  minSpeed: 0
+  maxSpeed: 100
+  shakerPrefab: {fileID: 6369872326363275812, guid: 39001e41a2f622049a5b696e5cadac4e, type: 3}
 --- !u!4 &683945181
 Transform:
   m_ObjectHideFlags: 0
@@ -939,7 +941,7 @@ GameObject:
   - component: {fileID: 785851048}
   - component: {fileID: 785851047}
   m_Layer: 0
-  m_Name: Image
+  m_Name: MinigameImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1528,7 +1530,12 @@ MonoBehaviour:
   speedMeter: {fileID: 1786291764}
   progress: {fileID: 683945182}
   timerText: {fileID: 1173151042}
-  stirDuration: 10
+  miniGameDuration: 10
+  greenProgressPerSecond: 0.35
+  yellowProgressPerSecond: 0.08
+  redPenaltyPerSecond: 0.25
+  minSpeed: 0
+  maxSpeed: 10
 --- !u!1 &1388679550
 GameObject:
   m_ObjectHideFlags: 0
@@ -3022,7 +3029,7 @@ GameObject:
   - component: {fileID: 1786291765}
   - component: {fileID: 1786291764}
   m_Layer: 0
-  m_Name: ShakeMeter
+  m_Name: SpeedMeter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
