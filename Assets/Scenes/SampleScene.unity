@@ -3055,10 +3055,10 @@ MonoBehaviour:
   minSpeed: 0
   maxSpeed: 100
   smoothTime: 0.15
-  greenMin: 0.4
-  greenMax: 0.6
-  yellowMin: 0.3
-  yellowMax: 0.7
+  greenMin: 0.45
+  greenMax: 0.55
+  yellowMin: 0.25
+  yellowMax: 0.75
 --- !u!4 &1786291765
 Transform:
   m_ObjectHideFlags: 0
