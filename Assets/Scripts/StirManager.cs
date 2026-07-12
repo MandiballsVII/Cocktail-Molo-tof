@@ -6,8 +6,8 @@ public class StirManager : MiniGameManager
 
     public void StartStir()
     {
-        speedMeter.ConfigureSpeedRange(0f, 10f);
-        speedMeter.SetSmoothTime(0.35f);
+        speedMeter.ConfigureSpeedRange(minSpeed, maxSpeed);
+        speedMeter.SetSmoothTime(speedSmoothTime);
         StartMiniGame();
     }
 

@@ -21,11 +21,14 @@ public class StirSpoon : MonoBehaviour
     private float currentSpeed;
 
     [SerializeField]
-    private float speedSmooth = 8f;
+    private float outputSmooth = 8f;
 
     private float filteredSpeed;
 
     public float CurrentSpeed => filteredSpeed;
+
+    [SerializeField]
+    private float movementSmooth = 12f;
 
     private void Awake()
     {
@@ -43,7 +46,7 @@ public class StirSpoon : MonoBehaviour
         filteredSpeed = Mathf.Lerp(
             filteredSpeed,
             targetSpeed,
-            Time.deltaTime * speedSmooth);
+            Time.deltaTime * outputSmooth);
     }
 
     private void OnMouseDown()
@@ -92,7 +95,13 @@ public class StirSpoon : MonoBehaviour
         if (insideGlass)
         {
             float deltaX = transform.position.x - previousPosition.x;
-            currentSpeed = Mathf.Abs(deltaX) / Time.deltaTime;
+
+            float rawSpeed = Mathf.Abs(deltaX) / Time.deltaTime;
+
+            currentSpeed = Mathf.Lerp(
+                currentSpeed,
+                rawSpeed,
+                Time.deltaTime * movementSmooth);
         }
         else
         {

@@ -8,8 +8,10 @@ public class ShakeManager : MiniGameManager
     private CocktailShaker currentShaker;
     public void StartShake()
     {
-        speedMeter.ConfigureSpeedRange(0f, 100f);
-        speedMeter.SetSmoothTime(0.15f);
+        speedMeter.ConfigureSpeedRange(minSpeed, maxSpeed);
+        speedMeter.SetSmoothTime(speedSmoothTime);
+        currentGlass = glassSelector.CurrentGlass;
+        currentGlass.Liquid.Hide();
         StartMiniGame();
     }
     protected override void SpawnMiniGameObject()

@@ -30,9 +30,13 @@ public class SpeedMeter : MonoBehaviour
     [SerializeField]
     private float yellowMax = 0.70f;
 
-    public bool IsInYellowZone { get; }
+    public bool IsInYellowZone =>
+    currentNormalizedValue >= yellowMin &&
+    currentNormalizedValue <= yellowMax &&
+    !IsInGreenZone;
 
-    public bool IsInRedZone { get; }
+    public bool IsInRedZone =>
+        !IsInGreenZone && !IsInYellowZone;
 
     private float targetNormalizedValue;
     private float currentNormalizedValue;

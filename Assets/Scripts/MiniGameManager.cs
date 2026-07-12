@@ -31,6 +31,7 @@ public abstract class MiniGameManager : MonoBehaviour
     [Header("Speed Settings")]
     [SerializeField] protected float minSpeed = 0f;
     [SerializeField] protected float maxSpeed = 100f;
+    [SerializeField] protected float speedSmoothTime = 0.15f;
 
     protected virtual void Update()
     {
@@ -83,19 +84,13 @@ public abstract class MiniGameManager : MonoBehaviour
             return;
 
         progress.ResetProgress();
+
         speedMeter.ConfigureSpeedRange(minSpeed, maxSpeed);
         speedMeter.ResetMeter();
 
         progress.gameObject.SetActive(true);
         speedMeter.gameObject.SetActive(true);
         timerText.gameObject.SetActive(true);
-
-        currentGlass.Liquid.Hide();
-
-        remainingTime = miniGameDuration;
-        timerRunning = true;
-
-        currentGlass.Liquid.Hide();
 
         SpawnMiniGameObject();
 
