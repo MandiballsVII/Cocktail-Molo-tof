@@ -5,6 +5,8 @@ public class Glass : MonoBehaviour
 {
     [SerializeField] private Liquid liquid;
     private List<GarnishData> garnishes = new();
+    public IReadOnlyList<GarnishData> Garnishes => garnishes;
+
     [SerializeField] private Transform garnishContainer;
 
     [SerializeField] private Transform leftLimit;
@@ -23,6 +25,11 @@ public class Glass : MonoBehaviour
 
     public Transform SpoonSpawnPoint => spoonSpawnPoint;
 
+    [SerializeField]
+    private GlassData data;
+
+    public GlassData Data => data;
+
     public void Pour(BottleData bottle)
     {
         liquid.Show();
@@ -32,6 +39,10 @@ public class Glass : MonoBehaviour
     {
         liquid.Hide();
         liquid.Clear();
+        garnishes.Clear();
+
+        foreach (Transform child in garnishContainer)
+            Destroy(child.gameObject);
     }
     public void AddGarnish(GarnishData garnish)
     {

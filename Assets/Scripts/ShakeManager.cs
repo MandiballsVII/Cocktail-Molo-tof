@@ -8,10 +8,6 @@ public class ShakeManager : MiniGameManager
     private CocktailShaker currentShaker;
     public void StartShake()
     {
-        speedMeter.ConfigureSpeedRange(minSpeed, maxSpeed);
-        speedMeter.SetSmoothTime(speedSmoothTime);
-        currentGlass = glassSelector.CurrentGlass;
-        currentGlass.Liquid.Hide();
         StartMiniGame();
     }
     protected override void SpawnMiniGameObject()
@@ -46,7 +42,7 @@ public class ShakeManager : MiniGameManager
 
     protected override void OnMiniGameFinished(bool success)
     {
-        // Aquí podremos avisar al PreparationManager
-        // cuando implementemos el flujo completo.
+        orderManager.SetPreparationMethod(PreparationMethod.Shake);
+        orderManager.SetMiniGameResult(success);
     }
 }

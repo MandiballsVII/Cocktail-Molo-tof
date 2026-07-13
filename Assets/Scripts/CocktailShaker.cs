@@ -65,8 +65,8 @@ public class CocktailShaker : MonoBehaviour
 
         previousPosition = transform.position;
 
-        print($"Current Speed: {currentSpeed}");
-        print($"Filtered Speed: {filteredSpeed}");
+        //print($"Current Speed: {currentSpeed}");
+        //print($"Filtered Speed: {filteredSpeed}");
     }
 
     private void OnMouseUp()

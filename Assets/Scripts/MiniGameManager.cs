@@ -8,6 +8,7 @@ public abstract class MiniGameManager : MonoBehaviour
     [SerializeField] protected SpeedMeter speedMeter;
     [SerializeField] protected ProgressMeter progress;
     [SerializeField] protected TMP_Text timerText;
+    [SerializeField] protected OrderManager orderManager;
 
     [Header("Timer")]
     [SerializeField]
@@ -87,6 +88,9 @@ public abstract class MiniGameManager : MonoBehaviour
 
         speedMeter.ConfigureSpeedRange(minSpeed, maxSpeed);
         speedMeter.ResetMeter();
+
+        speedMeter.ConfigureSpeedRange(minSpeed, maxSpeed);
+        speedMeter.SetSmoothTime(speedSmoothTime);
 
         progress.gameObject.SetActive(true);
         speedMeter.gameObject.SetActive(true);

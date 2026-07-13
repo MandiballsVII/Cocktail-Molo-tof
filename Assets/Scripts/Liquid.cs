@@ -6,6 +6,7 @@ public class Liquid : MonoBehaviour
     [SerializeField] private SpriteRenderer liquidRenderer;
 
     private Dictionary<BottleData, int> ingredients = new();
+    public IReadOnlyDictionary<BottleData, int> Ingredients => ingredients;
 
     private void Awake()
     {

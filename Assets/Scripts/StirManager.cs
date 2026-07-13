@@ -6,8 +6,6 @@ public class StirManager : MiniGameManager
 
     public void StartStir()
     {
-        speedMeter.ConfigureSpeedRange(minSpeed, maxSpeed);
-        speedMeter.SetSmoothTime(speedSmoothTime);
         StartMiniGame();
     }
 
@@ -43,6 +41,7 @@ public class StirManager : MiniGameManager
 
     protected override void OnMiniGameFinished(bool success)
     {
-        // Más adelante avisaremos al PreparationManager.
+        orderManager.SetPreparationMethod(PreparationMethod.Stir);
+        orderManager.SetMiniGameResult(success);
     }
 }

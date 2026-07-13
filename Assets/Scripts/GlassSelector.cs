@@ -36,6 +36,12 @@ public class GlassSelector : MonoBehaviour
 
         SpawnGlass();
     }
+    public void ResetSelection()
+    {
+        currentIndex = 0;
+
+        SpawnGlass();
+    }
 
     private void SpawnGlass()
     {

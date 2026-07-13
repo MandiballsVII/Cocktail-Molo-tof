@@ -115,6 +115,7 @@ MonoBehaviour:
   stirZone: {fileID: 5614271454837406123}
   spoonPrefab: {fileID: 2324464930951382329, guid: 1bf9a67eb97555548b9d07d05bae29a1, type: 3}
   spoonSpawnPoint: {fileID: 2533125124281674709}
+  data: {fileID: 11400000, guid: 74f32cc9ce43d7946a91ab11ba5d3862, type: 2}
 --- !u!61 &3814789960022829065
 BoxCollider2D:
   m_ObjectHideFlags: 0
