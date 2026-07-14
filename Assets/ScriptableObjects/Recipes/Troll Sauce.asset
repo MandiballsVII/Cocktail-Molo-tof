@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Troll Sauce
   m_EditorClassIdentifier: 
   recipeName: Troll Sauce
-  previewImage: {fileID: 0}
+  previewImage: {fileID: 21300000, guid: f749c659fc882a747a2de2161b0f932c, type: 3}
   price: 10
   requiredGlass: {fileID: 11400000, guid: 21fbfc60b38112141bec2bac5946b42b, type: 2}
   ingredients:

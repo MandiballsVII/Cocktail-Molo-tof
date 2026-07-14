@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd846bc2862854c4db2b776069f2acee, type: 3}
+  m_Name: BatWing
+  m_EditorClassIdentifier: 
+  garnishName: Bat wing
+  sprite: {fileID: 21300000, guid: b00607e562eba854ea58b3887a6ced26, type: 3}
+  prefab: {fileID: 8057735786400199286, guid: ae15380b92429ca45b9fd91305e34ec6, type: 3}

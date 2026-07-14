@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Black Widow Kiss
   m_EditorClassIdentifier: 
   recipeName: Black Widow Kiss
-  previewImage: {fileID: 0}
+  previewImage: {fileID: 21300000, guid: f6c4e05d3fd136e4780da0bb9490ded2, type: 3}
   price: 12
   requiredGlass: {fileID: 11400000, guid: 74f32cc9ce43d7946a91ab11ba5d3862, type: 2}
   ingredients:

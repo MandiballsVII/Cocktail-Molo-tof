@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class OrderManager : MonoBehaviour
 {
@@ -19,6 +20,8 @@ public class OrderManager : MonoBehaviour
 
     [SerializeField] private GlassSelector glassSelector;
 
+    public event Action<RecipeData> OnRecipeChanged;
+
     public void StartNewOrder()
     {
         if (recipes == null || recipes.Length == 0)
@@ -32,35 +35,11 @@ public class OrderManager : MonoBehaviour
         miniGameSucceeded = false;
 
         currentRecipe =
-            recipes[Random.Range(0, recipes.Length)];
+            recipes[UnityEngine.Random.Range(0, recipes.Length)];
 
-        Debug.Log("=================================");
-        Debug.Log("NUEVO PEDIDO");
-        Debug.Log("Cóctel: " + currentRecipe.recipeName);
+        PrintRecipe();
 
-        Debug.Log("Vaso:");
-        Debug.Log("- " + currentRecipe.requiredGlass.glassName);
-
-        Debug.Log("Ingredientes:");
-
-        foreach (IngredientRequirement ingredient in currentRecipe.ingredients)
-        {
-            Debug.Log(
-                $"- {ingredient.ingredient.bottleName}: {ingredient.units}");
-        }
-
-        Debug.Log("Método:");
-        Debug.Log("- " + currentRecipe.preparationMethod);
-
-        Debug.Log("Adornos:");
-
-        foreach (GarnishRequirement garnish in currentRecipe.garnishes)
-        {
-            Debug.Log(
-                $"- {garnish.garnish.garnishName}: {garnish.amount}");
-        }
-
-        Debug.Log("=================================");
+        OnRecipeChanged?.Invoke(currentRecipe);
     }
     public void RestartOrder()
     {
@@ -220,13 +199,12 @@ public class OrderManager : MonoBehaviour
     }
     private void PrintRecipe()
     {
-        Debug.Log("========== PEDIDO ==========");
+        Debug.Log("=================================");
+        Debug.Log("NUEVO PEDIDO");
+        Debug.Log("Cóctel: " + currentRecipe.recipeName);
 
-        Debug.Log($"Cóctel: {currentRecipe.recipeName}");
-
-        Debug.Log($"Vaso: {currentRecipe.requiredGlass.glassName}");
-
-        Debug.Log($"Método: {currentRecipe.preparationMethod}");
+        Debug.Log("Vaso:");
+        Debug.Log("- " + currentRecipe.requiredGlass.glassName);
 
         Debug.Log("Ingredientes:");
 
@@ -236,15 +214,18 @@ public class OrderManager : MonoBehaviour
                 $"- {ingredient.ingredient.bottleName}: {ingredient.units}");
         }
 
+        Debug.Log("Método:");
+        Debug.Log("- " + currentRecipe.preparationMethod);
+
         Debug.Log("Adornos:");
 
         foreach (GarnishRequirement garnish in currentRecipe.garnishes)
         {
             Debug.Log(
-                $"- {garnish.garnish.garnishName} x{garnish.amount}");
+                $"- {garnish.garnish.garnishName}: {garnish.amount}");
         }
 
-        Debug.Log("============================");
+        Debug.Log("=================================");
     }
 }
 public enum CocktailQuality

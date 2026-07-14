@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd846bc2862854c4db2b776069f2acee, type: 3}
+  m_Name: Mushroom
+  m_EditorClassIdentifier: 
+  garnishName: Mushroom
+  sprite: {fileID: 21300000, guid: 5f0aba8bd6f23ad499f760ac1f0d97c5, type: 3}
+  prefab: {fileID: 2664394243587456009, guid: 5e0825221162c1943a2261baeb36e623, type: 3}

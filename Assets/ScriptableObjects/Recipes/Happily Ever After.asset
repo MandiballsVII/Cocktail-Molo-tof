@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Happily Ever After
   m_EditorClassIdentifier: 
   recipeName: Happily Ever After
-  previewImage: {fileID: 0}
+  previewImage: {fileID: 21300000, guid: fdddbb85b00499740918c947e42d22e6, type: 3}
   price: 18
   requiredGlass: {fileID: 11400000, guid: 74f32cc9ce43d7946a91ab11ba5d3862, type: 2}
   ingredients:
