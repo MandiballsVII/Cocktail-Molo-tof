@@ -119,8 +119,24 @@ public class PreparationManager : MonoBehaviour
 
     private void SetDragging(DraggableObject[] objects, bool enabled)
     {
-        foreach (DraggableObject draggable in objects)
-            draggable.CanDrag = enabled;
+        if (objects == null)
+        {
+            Debug.LogError("El array de DraggableObjects es NULL.");
+            return;
+        }
+
+        Debug.Log($"Array con {objects.Length} elementos.");
+
+        for (int i = 0; i < objects.Length; i++)
+        {
+            if (objects[i] == null)
+            {
+                Debug.LogError($"Elemento {i} es NULL.");
+                continue;
+            }
+
+            objects[i].CanDrag = enabled;
+        }
     }
 
     private void SetButtons(Button[] buttons, bool enabled)

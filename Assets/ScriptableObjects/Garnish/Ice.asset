@@ -15,3 +15,4 @@ MonoBehaviour:
   garnishName: Ice
   sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   prefab: {fileID: 2275923045199772084, guid: baaa113ad0d837c4d8d917343199700e, type: 3}
+  baseScale: 0.8

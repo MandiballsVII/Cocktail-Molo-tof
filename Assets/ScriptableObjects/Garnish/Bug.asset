@@ -15,3 +15,4 @@ MonoBehaviour:
   garnishName: Bug
   sprite: {fileID: 21300000, guid: 429b7d46c51fe334c9231c322df29887, type: 3}
   prefab: {fileID: 948965886078222339, guid: d9f9443725e834247b9f6ba3b49724a7, type: 3}
+  baseScale: 0.8

@@ -5,6 +5,7 @@ public class Garnish : DraggableObject
     [SerializeField] private GarnishData data;
 
     [SerializeField] private Transform interactionPoint;
+    public Transform InteractionPoint => interactionPoint;
 
     protected override void OnDropped()
     {

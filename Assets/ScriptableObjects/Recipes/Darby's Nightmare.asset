@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Darby's Nightmare
   m_EditorClassIdentifier: 
   recipeName: Darby's Nightmare
-  previewImage: {fileID: 0}
+  previewImage: {fileID: 21300000, guid: bb447ba40d8ba904b93b4c626e2c0349, type: 3}
   price: 20
   requiredGlass: {fileID: 11400000, guid: 4417eb726f2b5d849aec3c51260db769, type: 2}
   ingredients:
@@ -23,5 +23,5 @@ MonoBehaviour:
     units: 1
   preparationMethod: 1
   garnishes:
-  - garnish: {fileID: 11400000, guid: a519693262cb7f145a8a6827ae627db2, type: 2}
+  - garnish: {fileID: 11400000, guid: c7f57b70d501b404caa280b9f21f4f21, type: 2}
     amount: 1

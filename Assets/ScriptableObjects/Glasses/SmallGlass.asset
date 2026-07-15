@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   glassName: Small glass
   prefab: {fileID: 280942240199989459, guid: c23097aef72f3634a9b68061ee1bf6ef, type: 3}
+  garnishScaleMultiplier: 0.5

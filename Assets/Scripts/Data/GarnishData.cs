@@ -8,4 +8,11 @@ public class GarnishData : ScriptableObject
     public Sprite sprite;
 
     public GameObject prefab;
+
+    [Header("Visual")]
+
+    [Min(0.1f)]
+    public float baseScale = 1f;
+
+    public GarnishPlacement placement;
 }

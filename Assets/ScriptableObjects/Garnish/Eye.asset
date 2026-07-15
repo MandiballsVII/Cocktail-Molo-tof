@@ -15,3 +15,4 @@ MonoBehaviour:
   garnishName: Eye
   sprite: {fileID: 21300000, guid: 6b8f5d2b69d726b45a97a232e08135b0, type: 3}
   prefab: {fileID: 5460437828407007067, guid: 73725bd5b83ac9a4f864e88b5a2dcb35, type: 3}
+  baseScale: 0.5

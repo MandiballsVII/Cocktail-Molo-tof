@@ -15,3 +15,4 @@ MonoBehaviour:
   garnishName: Worm
   sprite: {fileID: 21300000, guid: b1cc864b01083b8468176b4e11d87885, type: 3}
   prefab: {fileID: 5292504578196583803, guid: a8b4b002f5a16df4eb7f1987665f5689, type: 3}
+  baseScale: 0.8

@@ -23,5 +23,5 @@ MonoBehaviour:
     units: 1
   preparationMethod: 0
   garnishes:
-  - garnish: {fileID: 11400000, guid: a519693262cb7f145a8a6827ae627db2, type: 2}
+  - garnish: {fileID: 11400000, guid: 02da398840c62444a8efd8a435f5d213, type: 2}
     amount: 1

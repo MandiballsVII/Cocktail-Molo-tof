@@ -15,3 +15,4 @@ MonoBehaviour:
   garnishName: Lemon Slice
   sprite: {fileID: 21300000, guid: 25d0d4a177d8eb34aa76e2074c31f51a, type: 3}
   prefab: {fileID: 2672964912489034013, guid: 4e5c83c38a97f0d41ac3f67dee81025b, type: 3}
+  baseScale: 0.8

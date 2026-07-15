@@ -15,3 +15,4 @@ MonoBehaviour:
   garnishName: Frog leg
   sprite: {fileID: 21300000, guid: 6e5e94a25b67bab4583ddd2be4f74b1a, type: 3}
   prefab: {fileID: 8562728749138779536, guid: b5879a40c5bfb0b438755d3f3dbc5e29, type: 3}
+  baseScale: 0.8
