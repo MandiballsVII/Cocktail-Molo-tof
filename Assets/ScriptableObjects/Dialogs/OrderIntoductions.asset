@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31a23cf0cb7ad244faaed715c6105f36, type: 3}
+  m_Name: OrderIntoductions
+  m_EditorClassIdentifier: 
+  collectionName: Order Introductions
+  lines:
+  - I'd like a {0}.
+  - Serve me a {0}.
+  - Make me a {0}.
+  - One {0}, please.
+  - Let's see if you can make a proper {0}.

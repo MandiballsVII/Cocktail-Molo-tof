@@ -12,6 +12,10 @@ public class OrderManager : MonoBehaviour
 
     public RecipeData CurrentRecipe => currentRecipe;
 
+    public CocktailQuality LastQuality { get; private set; }
+
+    public event Action<CocktailQuality> OnOrderFinished;
+
     private GlassData selectedGlass;
 
     private PreparationMethod selectedMethod;
@@ -40,6 +44,12 @@ public class OrderManager : MonoBehaviour
         PrintRecipe();
 
         OnRecipeChanged?.Invoke(currentRecipe);
+
+        selectedGlass = null;
+        selectedMethod = default;
+        miniGameSucceeded = false;
+
+        LastQuality = CocktailQuality.Bad;
     }
     public void RestartOrder()
     {
@@ -148,7 +158,7 @@ public class OrderManager : MonoBehaviour
 
         return total;
     }
-    public void EvaluateOrder()
+    public CocktailQuality EvaluateOrder()
     {
         int score = 0;
 
@@ -186,6 +196,10 @@ public class OrderManager : MonoBehaviour
         Debug.Log("--------------------------------");
         Debug.Log($"Resultado final: {quality} ({score}/5)");
         Debug.Log("================================");
+
+        OnOrderFinished?.Invoke(LastQuality);
+
+        return LastQuality;
     }
     private CocktailQuality CalculateQuality(int score)
     {
