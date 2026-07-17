@@ -1638,6 +1638,7 @@ MonoBehaviour:
   - {fileID: 971160161}
   - {fileID: 278100816}
   orderManager: {fileID: 1046353423}
+  gameFlowManager: {fileID: 1044753633}
 --- !u!4 &835217207
 Transform:
   m_ObjectHideFlags: 0
@@ -1765,7 +1766,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 1
+  m_FillAmount: 0
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -2041,6 +2042,7 @@ MonoBehaviour:
   dialogueManager: {fileID: 1379796154}
   orderManager: {fileID: 1046353423}
   zoneChange: {fileID: 1039833651}
+  preparationManager: {fileID: 835217206}
   goToPreparationButton: {fileID: 1371018392}
   returnToBarButton: {fileID: 1417443467}
   introDialogue: {fileID: 11400000, guid: e5e041ed881e5ab4a88e49181b7abde2, type: 2}
@@ -2053,6 +2055,7 @@ MonoBehaviour:
   mediumReactions: {fileID: 11400000, guid: 6916784dfbb138d468f1f8626cc84006, type: 2}
   excellentReactions: {fileID: 11400000, guid: 8563731c5a53f3b45bf5b998a5e544ff, type: 2}
   totalRounds: 10
+  drunkennessBar: {fileID: 1000272027}
 --- !u!4 &1044753634
 Transform:
   m_ObjectHideFlags: 0
@@ -2923,9 +2926,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1039833651}
-        m_TargetAssemblyTypeName: ZoneChange, Assembly-CSharp
-        m_MethodName: ChangeToClient
+      - m_Target: {fileID: 1044753633}
+        m_TargetAssemblyTypeName: GameFlowManager, Assembly-CSharp
+        m_MethodName: ReturnToBar
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

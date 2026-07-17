@@ -191,10 +191,10 @@ public class OrderManager : MonoBehaviour
         if (garnishesOk)
             score++;
 
-        CocktailQuality quality = CalculateQuality(score);
+        LastQuality = CalculateQuality(score);
 
         Debug.Log("--------------------------------");
-        Debug.Log($"Resultado final: {quality} ({score}/5)");
+        Debug.Log($"Resultado final: {LastQuality} ({score}/5)");
         Debug.Log("================================");
 
         OnOrderFinished?.Invoke(LastQuality);

@@ -7,6 +7,7 @@ public class GameFlowManager : MonoBehaviour
     [SerializeField] private DialogueManager dialogueManager;
     [SerializeField] private OrderManager orderManager;
     [SerializeField] private ZoneChange zoneChange;
+    [SerializeField] private PreparationManager preparationManager;
 
     [Header("Buttons")]
     [SerializeField] private Button goToPreparationButton;
@@ -28,6 +29,7 @@ public class GameFlowManager : MonoBehaviour
 
     [Header("Game")]
     [SerializeField] private int totalRounds = 10;
+    [SerializeField] private DrunkennessBar drunkennessBar;
 
     private int currentRound;
     private int drunkennessPoints;
@@ -55,7 +57,7 @@ public class GameFlowManager : MonoBehaviour
 
     private void StartNextRound()
     {
-        Debug.Log("StartNextRound");
+        
         currentRound++;
 
         if (currentRound > totalRounds)
@@ -63,6 +65,8 @@ public class GameFlowManager : MonoBehaviour
             FinishGame();
             return;
         }
+
+        preparationManager.ResetPreparation();
 
         orderManager.StartNewOrder();
 
@@ -74,7 +78,6 @@ public class GameFlowManager : MonoBehaviour
 
     private void EnablePreparationButton()
     {
-        Debug.Log("EnablePreparationButton");
         goToPreparationButton.interactable = true;
     }
 
@@ -111,6 +114,8 @@ public class GameFlowManager : MonoBehaviour
                 drunkennessPoints += 2;
                 break;
         }
+
+        drunkennessBar.SetPoints(drunkennessPoints);
 
         dialogueManager.StartDialogue(
             DialogueFactory.CreateReactionDialogue(quality),

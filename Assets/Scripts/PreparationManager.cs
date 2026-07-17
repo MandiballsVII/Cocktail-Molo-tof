@@ -20,7 +20,9 @@ public class PreparationManager : MonoBehaviour
     [Header("Garnishes")]
     [SerializeField] private DraggableObject[] garnishes;
 
+    [Header("Managers")]
     [SerializeField] private OrderManager orderManager;
+    [SerializeField] private GameFlowManager gameFlowManager;
 
     private void Start()
     {
@@ -46,7 +48,8 @@ public class PreparationManager : MonoBehaviour
 
             case PreparationPhase.Garnishes:
                 ChangePhase(PreparationPhase.Finished);
-                orderManager.EvaluateOrder();
+                //orderManager.EvaluateOrder();
+                gameFlowManager.CocktailFinished();
                 break;
         }
     }
@@ -114,7 +117,7 @@ public class PreparationManager : MonoBehaviour
         glassSelector.ResetSelection();
 
         ChangePhase(PreparationPhase.GlassSelection);
-        orderManager.StartNewOrder();
+        //orderManager.StartNewOrder();
     }
 
     private void SetDragging(DraggableObject[] objects, bool enabled)
