@@ -55,6 +55,7 @@ public class GameFlowManager : MonoBehaviour
 
     private void StartNextRound()
     {
+        Debug.Log("StartNextRound");
         currentRound++;
 
         if (currentRound > totalRounds)
@@ -73,6 +74,7 @@ public class GameFlowManager : MonoBehaviour
 
     private void EnablePreparationButton()
     {
+        Debug.Log("EnablePreparationButton");
         goToPreparationButton.interactable = true;
     }
 

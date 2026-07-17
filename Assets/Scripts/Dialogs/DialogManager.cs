@@ -60,10 +60,9 @@ public class DialogueManager : MonoBehaviour
         NextLine();
     }
 
-    public void StartDialogue(
-        DialogueData dialogue,
-        Action finishedCallback = null)
+    public void StartDialogue(DialogueData dialogue, Action finishedCallback = null)
     {
+        Debug.Log("Callback recibido: " + (finishedCallback != null));
         List<string> lines = new();
 
         foreach (DialogueLine line in dialogue.lines)
@@ -72,9 +71,7 @@ public class DialogueManager : MonoBehaviour
         StartDialogue(lines, finishedCallback);
     }
 
-    public void StartDialogue(
-        List<string> lines,
-        Action finishedCallback = null)
+    public void StartDialogue(List<string> lines, Action finishedCallback = null)
     {
         dialogueFinishedCallback = finishedCallback;
 
@@ -150,14 +147,18 @@ public class DialogueManager : MonoBehaviour
 
     private void EndDialogue()
     {
+        Debug.Log("Callback almacenado: " + (dialogueFinishedCallback != null));
+        Debug.Log("EndDialogue");
         StopAllCoroutines();
 
         dialoguePanel.SetActive(false);
 
         IsDialogueRunning = false;
 
-        dialogueFinishedCallback?.Invoke();
+        Action callback = dialogueFinishedCallback;
 
         dialogueFinishedCallback = null;
+
+        callback?.Invoke();
     }
 }
