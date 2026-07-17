@@ -98,7 +98,7 @@ public class GameFlowManager : MonoBehaviour
     public void ReturnToBar()
     {
         returnToBarButton.interactable = false;
-
+        goToPreparationButton.interactable = false;
         zoneChange.ChangeToClient();
 
         CocktailQuality quality =
@@ -106,6 +106,10 @@ public class GameFlowManager : MonoBehaviour
 
         switch (quality)
         {
+            case CocktailQuality.Bad:
+                drunkennessPoints--;
+                break;
+
             case CocktailQuality.Medium:
                 drunkennessPoints++;
                 break;
