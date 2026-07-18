@@ -11,6 +11,10 @@ public class ProgressMeter : MonoBehaviour
 
     public bool IsCompleted => progress >= 1f;
 
+    public void SetCocktailSprite(Sprite sprite)
+    {
+        progressImage.sprite = sprite;
+    }
     public void ResetProgress()
     {
         progress = 0f;

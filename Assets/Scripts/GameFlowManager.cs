@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -30,6 +31,15 @@ public class GameFlowManager : MonoBehaviour
     [Header("Game")]
     [SerializeField] private int totalRounds = 10;
     [SerializeField] private DrunkennessBar drunkennessBar;
+
+    [Header("Ending")]
+    [SerializeField] private GameObject endingPanel;
+
+    [SerializeField] private GameObject winImage;
+
+    [SerializeField] private GameObject loseImage;
+
+    [SerializeField] private float endingDuration = 5f;
 
     private int currentRound;
     private int drunkennessPoints;
@@ -128,13 +138,33 @@ public class GameFlowManager : MonoBehaviour
 
     private void FinishGame()
     {
-        if (drunkennessPoints >= totalRounds)
-        {
-            dialogueManager.StartDialogue(goodEndingDialogue);
-        }
+        bool victory = drunkennessPoints >= totalRounds;
+
+        DialogueData endingDialogue =
+            victory ? goodEndingDialogue : badEndingDialogue;
+
+        dialogueManager.StartDialogue(
+            endingDialogue,
+            () => ShowEnding(victory));
+    }
+    private void ShowEnding(bool victory)
+    {
+        Time.timeScale = 0f;
+
+        endingPanel.SetActive(true);
+        if (victory)
+            winImage.SetActive(true);
         else
-        {
-            dialogueManager.StartDialogue(badEndingDialogue);
-        }
+            loseImage.SetActive(true);
+
+        StartCoroutine(ReturnToMainMenuRealtime());
+    }
+    private IEnumerator ReturnToMainMenuRealtime()
+    {
+        yield return new WaitForSecondsRealtime(5f);
+
+        Time.timeScale = 1f;
+
+        GameManager.Instance.LoadScene("MainMenu");
     }
 }

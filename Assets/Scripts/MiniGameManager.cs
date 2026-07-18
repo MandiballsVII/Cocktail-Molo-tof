@@ -84,6 +84,7 @@ public abstract class MiniGameManager : MonoBehaviour
         if (currentGlass == null)
             return;
 
+        progress.SetCocktailSprite(orderManager.CurrentRecipe.previewImage);
         progress.ResetProgress();
 
         speedMeter.ConfigureSpeedRange(minSpeed, maxSpeed);
