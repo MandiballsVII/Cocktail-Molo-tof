@@ -84,6 +84,9 @@ public abstract class MiniGameManager : MonoBehaviour
         if (currentGlass == null)
             return;
 
+        currentGlass.Liquid.Hide();
+        currentGlass.SetInteractionEnabled(false);
+
         progress.SetCocktailSprite(orderManager.CurrentRecipe.previewImage);
         progress.ResetProgress();
 
@@ -110,7 +113,10 @@ public abstract class MiniGameManager : MonoBehaviour
         timerRunning = false;
 
         if (currentGlass != null)
+        {
             currentGlass.Liquid.Show();
+            currentGlass.SetInteractionEnabled(true);
+        }
 
         progress.gameObject.SetActive(false);
         speedMeter.gameObject.SetActive(false);

@@ -600,6 +600,7 @@ MonoBehaviour:
   leftLimit: {fileID: 5950593225267041433}
   rightLimit: {fileID: 8153821513225073751}
   stirZone: {fileID: 5920446234637824177}
+  glassCollider: {fileID: 6845352634814829760}
   featherPoint: {fileID: 55409704670945759}
   garnishTopLeft: {fileID: 8490246651915418282}
   garnishTopRight: {fileID: 8172406369853324147}

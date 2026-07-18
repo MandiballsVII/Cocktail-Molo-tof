@@ -28,10 +28,28 @@ public class CocktailShaker : MonoBehaviour
     private void Update()
     {
         filteredSpeed = Mathf.Lerp(filteredSpeed, currentSpeed, Time.deltaTime * speedSmooth);
+        if (Input.GetMouseButtonDown(0))
+        {
+            Vector3 mouse =
+                mainCamera.ScreenToWorldPoint(Input.mousePosition);
+
+            RaycastHit2D hit =
+                Physics2D.Raycast(mouse, Vector2.zero);
+
+            if (hit.collider != null)
+            {
+                Debug.Log("CLICK SOBRE: " + hit.collider.name);
+            }
+            else
+            {
+                Debug.Log("NO HAY COLLIDER");
+            }
+        }
     }
 
     private void OnMouseDown()
     {
+        Debug.Log("OnMouseDown");
         dragging = true;
 
         Vector3 mouse = Input.mousePosition;

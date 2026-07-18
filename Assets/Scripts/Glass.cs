@@ -13,6 +13,7 @@ public class Glass : MonoBehaviour
     [SerializeField] private Transform leftLimit;
     [SerializeField] private Transform rightLimit;
     [SerializeField] private Collider2D stirZone;
+    [SerializeField] private Collider2D glassCollider;
 
     [Header("Garnishes")]
 
@@ -136,5 +137,9 @@ public class Glass : MonoBehaviour
 
         garnishObject.transform.rotation =
             Quaternion.identity;
+    }
+    public void SetInteractionEnabled(bool enabled)
+    {
+        glassCollider.enabled = enabled;
     }
 }

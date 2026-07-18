@@ -220,6 +220,7 @@ MonoBehaviour:
   leftLimit: {fileID: 7423219197228649819}
   rightLimit: {fileID: 3243955241637007028}
   stirZone: {fileID: 5990554498653818956}
+  glassCollider: {fileID: 1743337814238467239}
   featherPoint: {fileID: 1454734900865223401}
   garnishTopLeft: {fileID: 6060496535516439055}
   garnishTopRight: {fileID: 3536769992534790189}
