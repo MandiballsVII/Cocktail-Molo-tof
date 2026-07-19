@@ -30,6 +30,9 @@ public class StirSpoon : MonoBehaviour
     [SerializeField]
     private float movementSmooth = 12f;
 
+    private int previousDirection = 0;
+    [SerializeField] private float directionThreshold = 0.05f;
+
     private void Awake()
     {
         mainCamera = Camera.main;
@@ -51,6 +54,7 @@ public class StirSpoon : MonoBehaviour
 
     private void OnMouseDown()
     {
+        previousDirection = 0;
         dragging = true;
 
         Vector3 mouse = Input.mousePosition;
@@ -92,9 +96,9 @@ public class StirSpoon : MonoBehaviour
             transform.position = world;
         }
 
+        float deltaX = transform.position.x - previousPosition.x;
         if (insideGlass)
         {
-            float deltaX = transform.position.x - previousPosition.x;
 
             float rawSpeed = Mathf.Abs(deltaX) / Time.deltaTime;
 
@@ -109,6 +113,25 @@ public class StirSpoon : MonoBehaviour
         }
 
         previousPosition = transform.position;
+
+        int currentDirection = 0;
+
+        if (deltaX > directionThreshold)
+            currentDirection = 1;
+        else if (deltaX < -directionThreshold)
+            currentDirection = -1;
+
+        if (currentDirection != 0 &&
+            previousDirection != 0 &&
+            currentDirection != previousDirection)
+        {
+            AudioManager.Instance.PlayOneShot(
+                FMOD_Events.Instance.CucharaRemover,
+                transform.position);
+        }
+
+        if (currentDirection != 0)
+            previousDirection = currentDirection;
     }
 
     private void OnMouseUp()

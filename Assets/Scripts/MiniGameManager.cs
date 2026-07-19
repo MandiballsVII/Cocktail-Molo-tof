@@ -84,7 +84,7 @@ public abstract class MiniGameManager : MonoBehaviour
         if (currentGlass == null)
             return;
 
-        currentGlass.Liquid.Hide();
+        //currentGlass.Liquid.Hide();
         currentGlass.SetInteractionEnabled(false);
 
         progress.SetCocktailSprite(orderManager.CurrentRecipe.previewImage);

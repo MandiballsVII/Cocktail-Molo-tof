@@ -18,6 +18,9 @@ public class CocktailShaker : MonoBehaviour
 
     public float CurrentSpeed => filteredSpeed;
 
+    private int previousDirection = 0;
+    [SerializeField] private float directionThreshold = 0.05f;
+
     private void Awake()
     {
         mainCamera = Camera.main;
@@ -49,7 +52,7 @@ public class CocktailShaker : MonoBehaviour
 
     private void OnMouseDown()
     {
-        Debug.Log("OnMouseDown");
+        previousDirection = 0;
         dragging = true;
 
         Vector3 mouse = Input.mousePosition;
@@ -85,6 +88,24 @@ public class CocktailShaker : MonoBehaviour
 
         //print($"Current Speed: {currentSpeed}");
         //print($"Filtered Speed: {filteredSpeed}");
+        int currentDirection = 0;
+
+        if (deltaY > directionThreshold)
+            currentDirection = 1;
+        else if (deltaY < -directionThreshold)
+            currentDirection = -1;
+
+        if (currentDirection != 0 &&
+            previousDirection != 0 &&
+            currentDirection != previousDirection)
+        {
+            AudioManager.Instance.PlayOneShot(
+                FMOD_Events.Instance.AgitarCoctelera,
+                transform.position);
+        }
+
+        if (currentDirection != 0)
+            previousDirection = currentDirection;
     }
 
     private void OnMouseUp()

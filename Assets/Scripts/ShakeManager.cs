@@ -12,6 +12,7 @@ public class ShakeManager : MiniGameManager
     }
     protected override void SpawnMiniGameObject()
     {
+        currentGlass.Liquid.Hide();
         currentShaker = Instantiate(
             shakerPrefab,
             currentGlass.transform.position,
