@@ -114,8 +114,7 @@ public class DialogueManager : MonoBehaviour
         {
             dialogueText.text += character;
 
-            // TODO:
-            // AudioManager.Instance.PlayDialogueSound();
+            AudioManager.Instance.PlayOneShot(FMOD_Events.Instance.GrunidoCliente, Vector3.zero);
 
             yield return new WaitForSeconds(typingSpeed);
         }
