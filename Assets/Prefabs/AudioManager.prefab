@@ -1,0 +1,224 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2514697898846391076
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6626221709174114104}
+  - component: {fileID: 6465678659173394214}
+  m_Layer: 0
+  m_Name: FMOD_Events
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6626221709174114104
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2514697898846391076}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6931602808669605076}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6465678659173394214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2514697898846391076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 957211b9a60725040b6520bdbbf24aa0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <MainMenu>k__BackingField:
+    Guid:
+      Data1: -2106403906
+      Data2: 1123856242
+      Data3: 56953217
+      Data4: -1487131186
+    Path: event:/Music/MainMenu
+  <Gameplay>k__BackingField:
+    Guid:
+      Data1: 413402742
+      Data2: 1274793094
+      Data3: 620080791
+      Data4: -1888601889
+    Path: event:/Music/Gameplay
+  <AgarrarBotella>k__BackingField:
+    Guid:
+      Data1: -627596568
+      Data2: 1336217843
+      Data3: 25919366
+      Data4: -843676066
+    Path: event:/Sounds/AgarrarBotella
+  <AgitarCoctelera>k__BackingField:
+    Guid:
+      Data1: 1815247287
+      Data2: 1163574059
+      Data3: -175168611
+      Data4: 1929063370
+    Path: event:/Sounds/AgitarCoctelera
+  <ArrastrarJarra>k__BackingField:
+    Guid:
+      Data1: -1732820211
+      Data2: 1262405983
+      Data3: -492451433
+      Data4: 1455645651
+    Path: event:/Sounds/ArrastrarJarra
+  <Click>k__BackingField:
+    Guid:
+      Data1: 16247527
+      Data2: 1146633345
+      Data3: 1964065439
+      Data4: 997038051
+    Path: event:/Sounds/Click
+  <CucharaRemover>k__BackingField:
+    Guid:
+      Data1: -1117491634
+      Data2: 1191197971
+      Data3: 208685470
+      Data4: -717028100
+    Path: event:/Sounds/CucharaRemover
+  <DestaponarBotella>k__BackingField:
+    Guid:
+      Data1: 962489189
+      Data2: 1113023861
+      Data3: 1093357191
+      Data4: -1157975131
+    Path: event:/Sounds/DestaponarBotella
+  <Gato>k__BackingField:
+    Guid:
+      Data1: 2127617412
+      Data2: 1139908085
+      Data3: -815927903
+      Data4: -1101857488
+    Path: event:/Sounds/Gato
+  <GrunidoCliente>k__BackingField:
+    Guid:
+      Data1: 331139784
+      Data2: 1083955022
+      Data3: 1673049531
+      Data4: -2115676931
+    Path: event:/Sounds/GrunidoCliente
+  <GrunidoIntermedio>k__BackingField:
+    Guid:
+      Data1: -1558840844
+      Data2: 1186158617
+      Data3: 362279865
+      Data4: 155551175
+    Path: event:/Sounds/GrunidoIntermedio
+  <GrunidoNegativo>k__BackingField:
+    Guid:
+      Data1: -1162344685
+      Data2: 1215906129
+      Data3: -1463116397
+      Data4: -284181519
+    Path: event:/Sounds/GrunidoNegativo
+  <GrunidoPositivo>k__BackingField:
+    Guid:
+      Data1: -1300020111
+      Data2: 1276765636
+      Data3: 238054844
+      Data4: -1808538644
+    Path: event:/Sounds/GrunidoPositivo
+  <MinijuegoExito>k__BackingField:
+    Guid:
+      Data1: 997993443
+      Data2: 1222264296
+      Data3: -1650514303
+      Data4: -1573265996
+    Path: event:/Sounds/MinijuegoExito
+  <MinijuegoFallo>k__BackingField:
+    Guid:
+      Data1: 1388741327
+      Data2: 1115357083
+      Data3: 2123601085
+      Data4: 823789420
+    Path: event:/Sounds/MinijuegoFallo
+  <PasarPagina>k__BackingField:
+    Guid:
+      Data1: 1018552911
+      Data2: 1199736129
+      Data3: 584029826
+      Data4: -363584054
+    Path: event:/Sounds/PasarPagina
+  <PonerDecoracion>k__BackingField:
+    Guid:
+      Data1: 1301710151
+      Data2: 1165563991
+      Data3: -1312184929
+      Data4: 2038870919
+    Path: event:/Sounds/PonerDecoracion
+  <VerterLiquido>k__BackingField:
+    Guid:
+      Data1: 51399733
+      Data2: 1140149324
+      Data3: 885934741
+      Data4: 1808987813
+    Path: event:/Sounds/VerterLiquido
+  <WhooshCambioPantalla>k__BackingField:
+    Guid:
+      Data1: 1222439230
+      Data2: 1129276070
+      Data3: 420841388
+      Data4: -782080109
+    Path: event:/Sounds/WhoshSecciones
+--- !u!1 &8647054570480245971
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6931602808669605076}
+  - component: {fileID: 4068223255044706610}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6931602808669605076
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8647054570480245971}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 6626221709174114104}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4068223255044706610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8647054570480245971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a0f0909c7f6e5a41a946658902afad5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
