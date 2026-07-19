@@ -15,5 +15,14 @@ public class Garnish : DraggableObject
             return;
 
         glass.AddGarnish(data);
+        if(AudioManager.Instance != null)
+            AudioManager.Instance.PlayOneShot(FMOD_Events.Instance.AgarrarBotella, Vector3.zero);
+    }
+
+    protected override void OnDragStarted()
+    {
+        base.OnDragStarted();
+        if (AudioManager.Instance != null)
+            AudioManager.Instance.PlayOneShot(FMOD_Events.Instance.PonerDecoracion, Vector3.zero);
     }
 }

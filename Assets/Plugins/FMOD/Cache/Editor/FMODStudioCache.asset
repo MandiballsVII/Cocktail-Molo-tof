@@ -155,13 +155,13 @@ MonoBehaviour:
     Data4: -1888601889
   Banks:
   - {fileID: -246192684342403759}
-  IsStream: 0
+  IsStream: 1
   Is3D: 0
-  IsOneShot: 1
+  IsOneShot: 0
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 0
+  Length: 125400
 --- !u!114 &-6267054724661557072
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -359,7 +359,7 @@ MonoBehaviour:
   Path: Assets/FMOD_Banks/Desktop/Music.bank
   Name: Desktop/Music
   StudioPath: bank:/Music
-  lastModified: 639199612284696644
+  lastModified: 639200892617076693
   FileSizes: []
   Exists: 1
 --- !u!114 &-166840158325453526
@@ -431,7 +431,7 @@ MonoBehaviour:
   - {fileID: 7040729345499202588}
   StringsBanks:
   - {fileID: -2239957358333037730}
-  cacheTime: 639199612284903711
+  cacheTime: 639200892617076693
   cacheVersion: 131634
 --- !u!114 &2462214397913791038
 MonoBehaviour:

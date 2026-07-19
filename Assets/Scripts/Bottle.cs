@@ -14,5 +14,13 @@ public class Bottle : DraggableObject
             return;
 
         glass.Pour(data);
+        if(AudioManager.Instance != null)
+            AudioManager.Instance.PlayOneShot(FMOD_Events.Instance.VerterLiquido, Vector3.zero);
+    }
+    protected override void OnDragStarted()
+    {
+        base.OnDragStarted();
+        if (AudioManager.Instance != null)
+            AudioManager.Instance.PlayOneShot(FMOD_Events.Instance.AgarrarBotella, Vector3.zero);
     }
 }
