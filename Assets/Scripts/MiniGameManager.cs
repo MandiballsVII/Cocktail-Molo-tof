@@ -9,6 +9,7 @@ public abstract class MiniGameManager : MonoBehaviour
     [SerializeField] protected ProgressMeter progress;
     [SerializeField] protected TMP_Text timerText;
     [SerializeField] protected OrderManager orderManager;
+    [SerializeField] protected PreparationManager preparationManager;
 
     [Header("Timer")]
     [SerializeField]
@@ -33,7 +34,6 @@ public abstract class MiniGameManager : MonoBehaviour
     [SerializeField] protected float minSpeed = 0f;
     [SerializeField] protected float maxSpeed = 100f;
     [SerializeField] protected float speedSmoothTime = 0.15f;
-
     protected virtual void Update()
     {
         if (!timerRunning)
@@ -80,6 +80,7 @@ public abstract class MiniGameManager : MonoBehaviour
     protected void StartMiniGame()
     {
         currentGlass = glassSelector.CurrentGlass;
+        preparationManager.SetMixingMethodButtonsNonInteractable();
 
         if (currentGlass == null)
             return;
@@ -130,6 +131,7 @@ public abstract class MiniGameManager : MonoBehaviour
             ? $"{GetMiniGameName()} completado"
             : $"{GetMiniGameName()} fallido");
 
+        preparationManager.EnableConfirmButton();
         OnMiniGameFinished(success);
     }
 

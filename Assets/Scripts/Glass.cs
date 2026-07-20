@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -52,10 +53,17 @@ public class Glass : MonoBehaviour
 
     public Liquid Liquid => liquid;
 
+    public event Action FirstIngredientAdded;
+
     public void Pour(BottleData bottle)
     {
+        bool wasEmpty = liquid.TotalUnits == 0;
+
         liquid.Show();
         liquid.Pour(bottle);
+
+        if (wasEmpty)
+            FirstIngredientAdded?.Invoke();
     }
 
     public void Clear()
@@ -101,12 +109,12 @@ public class Glass : MonoBehaviour
     private void PlaceFloatingGarnish(GameObject garnishObject)
     {
         float x =
-            Random.Range(
+            UnityEngine.Random.Range(
                 garnishTopLeft.localPosition.x,
                 garnishTopRight.localPosition.x);
 
         float y =
-            Random.Range(
+            UnityEngine.Random.Range(
                 garnishBottomLeft.localPosition.y,
                 garnishTopLeft.localPosition.y);
 
@@ -117,7 +125,7 @@ public class Glass : MonoBehaviour
             Quaternion.Euler(
                 0,
                 0,
-                Random.Range(-30f, 30f));
+                UnityEngine.Random.Range(-30f, 30f));
     }
 
     private void PlaceSurfaceGarnish(
