@@ -158,6 +158,15 @@ public abstract class MiniGameManager : MonoBehaviour
     /// </summary>
     protected virtual void OnMiniGameFinished(bool success)
     {
+        print($"MiniGameManager: OnMiniGameFinished({success})");
+        if (AudioManager.Instance != null)
+        {
+            print($"MiniGameManager: OnMiniGameFinished({success}) - AudioManager.Instance is not null");
+            if (success)
+                AudioManager.Instance.PlayOneShot(FMOD_Events.Instance.MinijuegoExito, Vector3.zero);
+            else
+                AudioManager.Instance.PlayOneShot(FMOD_Events.Instance.MinijuegoFallo, Vector3.zero);
+        }
     }
 
     protected abstract void SpawnMiniGameObject();

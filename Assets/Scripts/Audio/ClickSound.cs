@@ -8,4 +8,8 @@ public class ClickSound : MonoBehaviour
     {
         AudioManager.Instance.PlayOneShot(FMOD_Events.Instance.Click, Vector3.zero);
     }
+    public void PlayChangeZoneSound()
+    {
+        AudioManager.Instance.PlayOneShot(FMOD_Events.Instance.WhooshCambioPantalla, Vector3.zero);
+    }
 }

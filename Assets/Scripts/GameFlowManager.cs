@@ -111,29 +111,32 @@ public class GameFlowManager : MonoBehaviour
         goToPreparationButton.interactable = false;
         zoneChange.ChangeToClient();
 
-        CocktailQuality quality =
-            orderManager.EvaluateOrder();
+        CocktailQuality quality = orderManager.EvaluateOrder();
 
         switch (quality)
         {
             case CocktailQuality.Bad:
                 drunkennessPoints--;
+                if(AudioManager.Instance != null)
+                    AudioManager.Instance.PlayOneShot(FMOD_Events.Instance.GrunidoNegativo, Vector3.zero);
                 break;
 
             case CocktailQuality.Medium:
                 drunkennessPoints++;
+                if (AudioManager.Instance != null)
+                    AudioManager.Instance.PlayOneShot(FMOD_Events.Instance.GrunidoIntermedio, Vector3.zero);
                 break;
 
             case CocktailQuality.Excellent:
                 drunkennessPoints += 2;
+                if (AudioManager.Instance != null)
+                    AudioManager.Instance.PlayOneShot(FMOD_Events.Instance.GrunidoPositivo, Vector3.zero);
                 break;
         }
 
         drunkennessBar.SetPoints(drunkennessPoints);
 
-        dialogueManager.StartDialogue(
-            DialogueFactory.CreateReactionDialogue(quality),
-            StartNextRound);
+        dialogueManager.StartDialogue(DialogueFactory.CreateReactionDialogue(quality), StartNextRound, false);
     }
 
     private void FinishGame()

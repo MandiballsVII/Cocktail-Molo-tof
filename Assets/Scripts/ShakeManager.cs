@@ -43,6 +43,7 @@ public class ShakeManager : MiniGameManager
 
     protected override void OnMiniGameFinished(bool success)
     {
+        base.OnMiniGameFinished(success);
         orderManager.SetPreparationMethod(PreparationMethod.Shake);
         orderManager.SetMiniGameResult(success);
     }

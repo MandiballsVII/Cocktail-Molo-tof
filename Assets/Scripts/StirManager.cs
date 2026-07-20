@@ -41,6 +41,7 @@ public class StirManager : MiniGameManager
 
     protected override void OnMiniGameFinished(bool success)
     {
+        base.OnMiniGameFinished(success);
         orderManager.SetPreparationMethod(PreparationMethod.Stir);
         orderManager.SetMiniGameResult(success);
     }

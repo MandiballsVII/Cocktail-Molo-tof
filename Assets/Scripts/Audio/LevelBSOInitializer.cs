@@ -6,7 +6,7 @@ public class LevelBSOInitializer : MonoBehaviour
 {
     void Start()
     {
-        AudioManager.Instance.InitializeMusic(FMOD_Events.Instance.Gameplay);
+        AudioManager.Instance.InitializeMusic(FMOD_Events.Instance.MainMenu);
     }
 
 }

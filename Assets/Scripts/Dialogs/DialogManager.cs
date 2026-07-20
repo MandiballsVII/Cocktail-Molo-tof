@@ -28,6 +28,8 @@ public class DialogueManager : MonoBehaviour
 
     public bool IsDialogueRunning { get; private set; }
 
+    private bool playCharacterSound = true;
+
     private void Awake()
     {
         if (Instance == null)
@@ -60,19 +62,20 @@ public class DialogueManager : MonoBehaviour
         NextLine();
     }
 
-    public void StartDialogue(DialogueData dialogue, Action finishedCallback = null)
+    public void StartDialogue(DialogueData dialogue, Action finishedCallback = null, bool playCharacterSound = true)
     {
-        Debug.Log("Callback recibido: " + (finishedCallback != null));
         List<string> lines = new();
 
         foreach (DialogueLine line in dialogue.lines)
             lines.Add(line.text);
 
-        StartDialogue(lines, finishedCallback);
+        StartDialogue(lines, finishedCallback, playCharacterSound);
     }
 
-    public void StartDialogue(List<string> lines, Action finishedCallback = null)
+    public void StartDialogue(List<string> lines, Action finishedCallback = null, bool playCharacterSound = true)
     {
+        this.playCharacterSound = playCharacterSound;
+
         dialogueFinishedCallback = finishedCallback;
 
         dialoguePanel.SetActive(true);
@@ -113,8 +116,8 @@ public class DialogueManager : MonoBehaviour
         foreach (char character in currentLine)
         {
             dialogueText.text += character;
-
-            AudioManager.Instance.PlayOneShot(FMOD_Events.Instance.GrunidoIntermedio, Vector3.zero);
+            if (playCharacterSound && AudioManager.Instance != null)
+                AudioManager.Instance.PlayOneShot(FMOD_Events.Instance.GrunidoCliente, Vector3.zero);
 
             yield return new WaitForSeconds(typingSpeed);
         }
