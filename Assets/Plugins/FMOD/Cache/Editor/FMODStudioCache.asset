@@ -131,7 +131,8 @@ MonoBehaviour:
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
-  Parameters: []
+  Parameters:
+  - {fileID: 852773603821216852}
   MinDistance: 1
   MaxDistance: 20
   Length: 27576
@@ -312,10 +313,10 @@ MonoBehaviour:
   Path: Assets/FMOD_Banks/Desktop/Master.strings.bank
   Name: Desktop/Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639199612284522908
+  lastModified: 639201467719554027
   FileSizes:
   - Name: 
-    Value: 1742
+    Value: 1880
   Exists: 1
 --- !u!114 &-1556010350501506890
 MonoBehaviour:
@@ -359,7 +360,7 @@ MonoBehaviour:
   Path: Assets/FMOD_Banks/Desktop/Music.bank
   Name: Desktop/Music
   StudioPath: bank:/Music
-  lastModified: 639200892617076693
+  lastModified: 639201474557910168
   FileSizes: []
   Exists: 1
 --- !u!114 &-166840158325453526
@@ -431,8 +432,32 @@ MonoBehaviour:
   - {fileID: 7040729345499202588}
   StringsBanks:
   - {fileID: -2239957358333037730}
-  cacheTime: 639200892617076693
+  cacheTime: 639201474557910168
   cacheVersion: 131634
+--- !u!114 &852773603821216852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/MainMenu/AmbienceVolumeController
+  m_EditorClassIdentifier: 
+  Name: AmbienceVolumeController
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 1
+  ID:
+    data1: 3429386615
+    data2: 297784776
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
 --- !u!114 &2462214397913791038
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -502,7 +527,7 @@ MonoBehaviour:
   Path: Assets/FMOD_Banks/Desktop/SoundFx.bank
   Name: Desktop/SoundFx
   StudioPath: bank:/SoundFx
-  lastModified: 639199612284903711
+  lastModified: 639201473885774935
   FileSizes: []
   Exists: 1
 --- !u!114 &4088629962374266869
@@ -628,6 +653,6 @@ MonoBehaviour:
   Path: Assets/FMOD_Banks/Desktop/Master.bank
   Name: Desktop/Master
   StudioPath: bank:/Master
-  lastModified: 639199612284356564
+  lastModified: 639201467719518079
   FileSizes: []
   Exists: 1
