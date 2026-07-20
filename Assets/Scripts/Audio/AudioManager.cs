@@ -11,6 +11,8 @@ public class AudioManager : MonoBehaviour
 
     private EventInstance musicEventInstance;
 
+    private readonly List<EventInstance> musicInstances = new();
+
     private void Awake()
     {
         if (Instance == null)
@@ -31,6 +33,7 @@ public class AudioManager : MonoBehaviour
     public void InitializeMusic(EventReference musicEventReference)
     {
         musicEventInstance = CreateInstance(musicEventReference);
+        musicInstances.Add(musicEventInstance);
         musicEventInstance.start();
     }
 
@@ -43,5 +46,15 @@ public class AudioManager : MonoBehaviour
     public void StopMusic()
     {
         musicEventInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+    }
+    public void StopAllMusic()
+    {
+        foreach (EventInstance instance in musicInstances)
+        {
+            instance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+            instance.release();
+        }
+
+        musicInstances.Clear();
     }
 }

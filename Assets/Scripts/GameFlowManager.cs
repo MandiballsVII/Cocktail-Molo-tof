@@ -141,6 +141,8 @@ public class GameFlowManager : MonoBehaviour
 
     private void FinishGame()
     {
+        print("Game finished. Drunkenness points: " + drunkennessPoints);
+        AudioManager.Instance.StopMusic();
         bool victory = drunkennessPoints >= totalRounds;
 
         DialogueData endingDialogue =
@@ -152,8 +154,8 @@ public class GameFlowManager : MonoBehaviour
     }
     private void ShowEnding(bool victory)
     {
+        AudioManager.Instance.StopMusic();
         Time.timeScale = 0f;
-
         endingPanel.SetActive(true);
         if (victory)
             winImage.SetActive(true);
